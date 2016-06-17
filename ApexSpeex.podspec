@@ -7,7 +7,8 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "TYM" => "www.tym@hotmail.com" }
   s.source           = { :git => "https://github.com/TYM1/ApexSpeex.git", :tag => "1.0.0" }
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios
+  s.ios.deployment_target = "7.0"
   s.requires_arc = true
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
