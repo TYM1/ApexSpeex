@@ -2,9 +2,7 @@ Pod::Spec.new do |s|
   s.name             = "ApexSpeex"
   s.version          = "1.0.0"
   s.summary          = "A short description of speex." 
-  s.description      = <<-DESC
-                       DESC
-
+  s.description      = "A short description of speex."
   s.homepage         = "https://github.com/TYM1/ApexSpeex"
   s.license          = 'MIT'
   s.author           = { "TYM" => "www.tym@hotmail.com" }
