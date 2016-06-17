@@ -1,6 +1,0 @@
-framework module speex {
-  umbrella header "Pods-speex_Example-speex-umbrella.h"
-
-  export *
-  module * { export * }
-}
