@@ -1,5 +1,4 @@
 # ApexSpeex
-[![Platform](https://img.shields.io/cocoapods/p/speex.svg?style=flat)](http://cocoapods.org/pods/speex)
 
 speex for ios
 
