@@ -1,0 +1,19 @@
+PODS:
+  - ApexSpeex (1.0.0)
+
+DEPENDENCIES:
+  - ApexSpeex (from `https://github.com/TYM1/ApexSpeex.git`)
+
+EXTERNAL SOURCES:
+  ApexSpeex:
+    :git: https://github.com/TYM1/ApexSpeex.git
+
+CHECKOUT OPTIONS:
+  ApexSpeex:
+    :commit: ced3983093c9b0ff688d42a320bcce34ab1b9c31
+    :git: https://github.com/TYM1/ApexSpeex.git
+
+SPEC CHECKSUMS:
+  ApexSpeex: 8d3e56b3354cc39c44cf6f4269f6bfcc4150fce7
+
+COCOAPODS: 0.39.0

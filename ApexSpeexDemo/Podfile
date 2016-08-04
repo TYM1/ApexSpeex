@@ -1,0 +1,3 @@
+platform :ios, "8.0"
+
+pod 'ApexSpeex', :git => 'https://github.com/TYM1/ApexSpeex.git'
