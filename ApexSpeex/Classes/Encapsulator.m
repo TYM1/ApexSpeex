@@ -53,9 +53,9 @@ void writeString(unsigned char *dest, int offset, unsigned char *value, int leng
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(encapsulatingOver:) name:NOTIFICATION_ENCAPSULTING_OVER object:nil];
         
-        [self setMode:0 sampleRate:8000 channels:1 frames:1 vbr:YES];
+        [self setMode:1 sampleRate:16000 channels:1 frames:1 vbr:YES];
         
-        speex_init_header(&speexHeader, sampleRate, channels, &speex_nb_mode);
+        speex_init_header(&speexHeader, sampleRate, channels, &speex_wb_mode);
         
         operationQueue = [[NSOperationQueue alloc] init];
     }
@@ -221,12 +221,12 @@ void writeString(unsigned char *dest, int offset, unsigned char *value, int leng
     writeString(speexHeader, offset+8, (unsigned char *)self.mParent.speexHeader.speex_version, versionSize);  //8 - 27: speex_version
     writeInt(speexHeader, offset+28, 1);           // 28 - 31: speex_version_id
     writeInt(speexHeader, offset+32, 80);          // 32 - 35: header_size
-    writeInt(speexHeader, offset+36, 8000);  // 36 - 39: rate
-    writeInt(speexHeader, offset+40, 0);        // 40 - 43: mode (0=NB, 1=WB, 2=UWB)
+    writeInt(speexHeader, offset+36, 16000);  // 36 - 39: rate
+    writeInt(speexHeader, offset+40, 1);        // 40 - 43: mode (0=NB, 1=WB, 2=UWB)
     writeInt(speexHeader, offset+44, 4);           // 44 - 47: mode_bitstream_version
     writeInt(speexHeader, offset+48, 1);    // 48 - 51: nb_channels
     writeInt(speexHeader, offset+52, -1);          // 52 - 55: bitrate
-    writeInt(speexHeader, offset+56, 160 << 0); // 56 - 59: frame_size (NB=160, WB=320, UWB=640)
+    writeInt(speexHeader, offset+56, 320 << 0); // 56 - 59: frame_size (NB=160, WB=320, UWB=640)
     writeInt(speexHeader, offset+60, 1);     // 60 - 63: vbr
     writeInt(speexHeader, offset+64, 1);     // 64 - 67: frames_per_packet
     writeInt(speexHeader, offset+68, 0);           // 68 - 71: extra_headers

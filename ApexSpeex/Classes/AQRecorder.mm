@@ -144,7 +144,7 @@ void AQRecorder::SetupAudioFormat(UInt32 inFormatID)
         mRecordFormat.mFramesPerPacket = 1;
         mRecordFormat.mBytesPerPacket = mRecordFormat.mBytesPerFrame * mRecordFormat.mFramesPerPacket;
         
-        mRecordFormat.mSampleRate = 8000;   //8k frames per second
+        mRecordFormat.mSampleRate = 16000;   //8k frames per second
 	}
 }
 

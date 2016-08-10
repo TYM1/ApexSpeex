@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SpeexCodec.h"
 
-#define FRAME_SIZE 160 // PCM音频8khz*20ms -> 8000*0.02=160
+#define FRAME_SIZE 320 // PCM音频8khz*20ms -> 8000*0.02=160
 
 @class EncapsulatingOperation;
 

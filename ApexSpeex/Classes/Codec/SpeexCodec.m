@@ -30,8 +30,8 @@
         speex_bits_init(&encodeSpeexBits);
         speex_bits_init(&decodeSpeexBits);
         
-        encodeState = speex_encoder_init(&speex_nb_mode);
-        decodeState = speex_decoder_init(&speex_nb_mode);
+        encodeState = speex_encoder_init(&speex_wb_mode);
+        decodeState = speex_decoder_init(&speex_wb_mode);
         
         int tmp = quality;
         speex_encoder_ctl(encodeState, SPEEX_SET_QUALITY, &tmp);
