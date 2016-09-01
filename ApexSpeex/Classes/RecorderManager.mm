@@ -104,6 +104,10 @@ AudioQueueLevelMeterState *levelMeterStates;
     }
     
     if ( ! mAQRecorder->IsRunning()) {
+        //        if (![[[AVAudioSession sharedInstance] category] isEqualToString:AVAudioSessionCategoryPlayAndRecord]) {
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+        [[AVAudioSession sharedInstance] setActive:YES error:nil];
+        //        }
         NSLog(@"audio session category : %@", [[AVAudioSession sharedInstance] category]);
         Boolean recordingWillBegin = mAQRecorder->StartRecord(encapsulator);
         if ( ! recordingWillBegin) {
