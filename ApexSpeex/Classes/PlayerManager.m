@@ -84,6 +84,11 @@ static PlayerManager *mPlayerManager = nil;
         [self.decapsulator play];
         
 //        [self startProximityMonitering];
+        
+        if ([self.delegate respondsToSelector:@selector(playingStart)]) {
+            [self.delegate playingStart];
+        }
+        
     }
     else if ([filename rangeOfString:@".mp3"].location != NSNotFound) {
         if ( ! [[NSFileManager defaultManager] fileExistsAtPath:filename]) {
@@ -103,13 +108,47 @@ static PlayerManager *mPlayerManager = nil;
             self.avAudioPlayer.delegate = self;
             [self.avAudioPlayer play];
 //            [self startProximityMonitering];
+            
+            if ([self.delegate respondsToSelector:@selector(playingStart)]) {
+                [self.delegate playingStart];
+            }
         }
         else {
-            [self.delegate playingStoped];
+            if ([self.delegate respondsToSelector:@selector(playingStoped)]) {
+                [self.delegate playingStoped];
+            }
         }
     }
     else {
-        [self.delegate playingStoped];
+        if ([self.delegate respondsToSelector:@selector(playingStoped)]) {
+            [self.delegate playingStoped];
+        }
+    }
+}
+
+- (void)pausePlaying {
+    if (self.decapsulator) {
+        [self.decapsulator pause];
+    }
+    if (self.avAudioPlayer) {
+        [self.avAudioPlayer pause];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(playingPause)]) {
+        [self.delegate playingPause];
+    }
+}
+
+- (void)continuePlaying {
+    if (self.decapsulator) {
+        [self.decapsulator continuePlay];
+    }
+    if (self.avAudioPlayer) {
+        [self.avAudioPlayer play];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(playingContinue)]) {
+        [self.delegate playingContinue];
     }
 }
 
@@ -128,12 +167,16 @@ static PlayerManager *mPlayerManager = nil;
 //        [self.delegate playingStoped];
     }
     
-    [self.delegate playingStoped];
+    if ([self.delegate respondsToSelector:@selector(playingStoped)]) {
+        [self.delegate playingStoped];
+    }
 }
 
 - (void)decapsulatingAndPlayingOver {
-    [self.delegate playingStoped];
-    [self stopProximityMonitering];
+    if ([self.delegate respondsToSelector:@selector(playingStoped)]) {
+        [self.delegate playingStoped];
+    }
+//    [self stopProximityMonitering];
 }
 
 - (void)sensorStateChange:(NSNotification *)notification {

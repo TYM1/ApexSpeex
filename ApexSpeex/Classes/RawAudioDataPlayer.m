@@ -58,6 +58,16 @@
      */
 }
 
+-(void)pausePlay {
+    OSStatus status = AudioQueuePause(audioQueue);
+    NSLog(@"%d", status);
+}
+
+-(void)continuePlay {
+    OSStatus status = AudioQueueStart(audioQueue, NULL);
+    NSLog(@"%d", status);
+}
+
 -(void)stopPlay {
     AudioQueueStop(audioQueue, YES);
     AudioQueueDispose(audioQueue, YES);

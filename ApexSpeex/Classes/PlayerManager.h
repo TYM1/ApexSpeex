@@ -14,13 +14,18 @@
 
 - (void)playingStoped;
 
+@optional
+- (void)playingStart;
+- (void)playingPause;
+- (void)playingContinue;
+
 @end
 
 @interface PlayerManager : NSObject <DecapsulatingDelegate, AVAudioPlayerDelegate> {
     Decapsulator *decapsulator;
     AVAudioPlayer *avAudioPlayer;
-    
 }
+
 @property (nonatomic, strong) Decapsulator *decapsulator;
 @property (nonatomic, strong) AVAudioPlayer *avAudioPlayer;
 @property (nonatomic, weak)  id<PlayingDelegate> delegate;
@@ -28,6 +33,8 @@
 + (PlayerManager *)sharedManager;
 
 - (void)playAudioWithFileName:(NSString *)filename delegate:(id<PlayingDelegate>)newDelegate;
+- (void)pausePlaying;
+- (void)continuePlaying;
 - (void)stopPlaying;
 
 @end

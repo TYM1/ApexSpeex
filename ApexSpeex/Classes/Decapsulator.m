@@ -53,6 +53,20 @@
     
 }
 
+- (void)pausePlaying {
+    isPlaying = NO;
+    if (self.player) {
+        [self.player pausePlay];
+    }
+}
+
+-(void)continuePlaying {
+    isPlaying = YES;
+    if (self.player) {
+        [self.player continuePlay];
+    }
+}
+
 - (void)stopPlaying {
     isPlaying = NO;
     if (self.player) {
@@ -201,7 +215,7 @@
 #pragma mark - DecapsulatingDelegate
 
 - (void)playingingOver:(NSNotification *)notification {
-    if (self.delegate) {
+    if ([self.delegate respondsToSelector:@selector(decapsulatingAndPlayingOver)]) {
         [self.delegate decapsulatingAndPlayingOver];
     }
 }

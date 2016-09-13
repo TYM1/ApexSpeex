@@ -40,4 +40,8 @@
 
 - (void)stopPlaying;
 
+- (void)pausePlaying;
+
+- (void)continuePlaying;
+
 @end

@@ -34,6 +34,8 @@
 static void AudioPlayerAQInputCallback(void *input, AudioQueueRef inQ, AudioQueueBufferRef outQB);
 
 - (void)startPlay;
+- (void)pausePlay;
+- (void)continuePlay;
 - (void)stopPlay;
 - (void)inputNewDataFromBuffer:(Byte *)buffer size:(int)bufferSize;
 
