@@ -128,7 +128,7 @@ static PlayerManager *mPlayerManager = nil;
 
 - (void)pausePlaying {
     if (self.decapsulator) {
-        [self.decapsulator pause];
+        [self.decapsulator pausePlaying];
     }
     if (self.avAudioPlayer) {
         [self.avAudioPlayer pause];
@@ -141,7 +141,7 @@ static PlayerManager *mPlayerManager = nil;
 
 - (void)continuePlaying {
     if (self.decapsulator) {
-        [self.decapsulator continuePlay];
+        [self.decapsulator continuePlaying];
     }
     if (self.avAudioPlayer) {
         [self.avAudioPlayer play];
