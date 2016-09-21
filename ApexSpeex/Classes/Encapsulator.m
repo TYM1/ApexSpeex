@@ -160,7 +160,7 @@ void writeString(unsigned char *dest, int offset, unsigned char *value, int leng
 //不停从bufferData中获取数据构建paket并且修改相关计数器
 - (void)main {
     SpeexCodec *codec = [[SpeexCodec alloc] init];
-    [codec open:4];     //压缩率为4
+    [codec open:8];     //压缩率为4     *****modify
     while ( ! self.mParent.isCanceled) {
         if ([[self.mParent getPCMDatas] count] > 0) {
             NSData *pcmData = [[self.mParent getPCMDatas] objectAtIndex:0];

@@ -149,7 +149,7 @@
                 }
                 
                 SpeexCodec *codec = [[SpeexCodec alloc] init];
-                [codec open:4];
+                [codec open:8];    // *****modify
                 short decodedBuffer[1024];
                 
                 while (YES) {
