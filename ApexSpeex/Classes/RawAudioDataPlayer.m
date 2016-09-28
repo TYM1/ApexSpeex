@@ -73,6 +73,9 @@
     AudioQueueDispose(audioQueue, YES);
 }
 
+- (void)setVolume:(CGFloat)volume {
+    AudioQueueSetParameter(audioQueue, kAudioQueueParam_Volume, volume);
+}
 
 -(void)initAudio {
     ///设置音频参数

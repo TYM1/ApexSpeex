@@ -75,6 +75,12 @@
 //    [self playingingOver:nil];
 }
 
+-(void)setVolume:(CGFloat)volume {
+    if (self.player) {
+        [self.player setVolume:volume];
+    }
+}
+
 #pragma mark -
 
 //packet转换完成

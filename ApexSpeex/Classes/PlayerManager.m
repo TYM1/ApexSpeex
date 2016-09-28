@@ -172,6 +172,15 @@ static PlayerManager *mPlayerManager = nil;
     }
 }
 
+-(void)setVolume:(CGFloat)volume {
+    if (self.decapsulator) {
+        [self.decapsulator setVolume:volume];
+    }
+    if (self.avAudioPlayer) {
+        self.avAudioPlayer.volume = volume;
+    }
+}
+
 - (void)decapsulatingAndPlayingOver {
     if ([self.delegate respondsToSelector:@selector(playingStoped)]) {
         [self.delegate playingStoped];

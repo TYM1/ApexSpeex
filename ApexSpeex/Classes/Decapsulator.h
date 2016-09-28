@@ -44,4 +44,6 @@
 
 - (void)continuePlaying;
 
+-(void)setVolume:(CGFloat)volume;
+
 @end

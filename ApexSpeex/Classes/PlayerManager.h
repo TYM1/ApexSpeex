@@ -36,5 +36,6 @@
 - (void)pausePlaying;
 - (void)continuePlaying;
 - (void)stopPlaying;
+-(void)setVolume:(CGFloat)volume;
 
 @end
