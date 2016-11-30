@@ -33,9 +33,11 @@
 + (PlayerManager *)sharedManager;
 
 - (void)playAudioWithFileName:(NSString *)filename delegate:(id<PlayingDelegate>)newDelegate;
+- (void)playAudioWithData:(NSMutableData *)data size:(NSInteger)size delegate:(id<PlayingDelegate>)newDelegate;
+- (void)appendAudioData:(NSData *)data;
 - (void)pausePlaying;
 - (void)continuePlaying;
 - (void)stopPlaying;
--(void)setVolume:(CGFloat)volume;
+- (void)setVolume:(CGFloat)volume;
 
 @end

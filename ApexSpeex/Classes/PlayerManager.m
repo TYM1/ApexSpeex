@@ -126,6 +126,29 @@ static PlayerManager *mPlayerManager = nil;
     }
 }
 
+- (void)playAudioWithData:(NSMutableData *)data size:(NSInteger)size delegate:(id<PlayingDelegate>)newDelegate {
+    
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    
+    [self stopPlaying];
+    self.delegate = newDelegate;
+    
+    self.decapsulator = [[Decapsulator alloc] initWithData:data size:size];
+    self.decapsulator.delegate = self;
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [self.decapsulator playStream];
+    
+    //        [self startProximityMonitering];
+    
+    if ([self.delegate respondsToSelector:@selector(playingStart)]) {
+        [self.delegate playingStart];
+    }
+}
+
+- (void)appendAudioData:(NSData *)data {
+    [self.decapsulator reNewData:data];
+}
+
 - (void)pausePlaying {
     if (self.decapsulator) {
         [self.decapsulator pausePlaying];

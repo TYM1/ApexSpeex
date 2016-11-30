@@ -11,8 +11,8 @@
 #import <AudioToolbox/AudioFile.h>
 
 #define QUEUE_BUFFER_SIZE 4 //队列缓冲个数
-#define EVERY_READ_LENGTH 1000 //每次从文件读取的长度
-#define MIN_SIZE_PER_FRAME 2000 //每侦最小数据长
+#define EVERY_READ_LENGTH 512 //每次从文件读取的长度
+#define MIN_SIZE_PER_FRAME 512 //每侦最小数据长
 
 #define NOTIFICATION_PLAY_OVER @"playingOver"
 

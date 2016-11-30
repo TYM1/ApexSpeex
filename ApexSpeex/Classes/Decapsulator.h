@@ -28,6 +28,9 @@
     ogg_stream_state oggStreamState;
     ogg_sync_state oggSyncState;
     int packetNo;
+    int pageNo;//new
+    int readedBytes;
+    NSUInteger decodedByteLength;
 }
 
 @property (atomic, strong) RawAudioDataPlayer *player;
@@ -35,15 +38,14 @@
 
 //生成对象
 - (id)initWithFileName:(NSString *)filename;
-
 - (void)play;
-
 - (void)stopPlaying;
-
 - (void)pausePlaying;
-
 - (void)continuePlaying;
+- (void)setVolume:(CGFloat)volume;
 
--(void)setVolume:(CGFloat)volume;
+- (instancetype)initWithData:(NSMutableData *)data size:(int)size;
+- (void)playStream;
+- (void)reNewData:(NSMutableData *)data;
 
 @end
